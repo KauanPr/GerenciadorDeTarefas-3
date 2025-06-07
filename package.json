@@ -44,6 +44,9 @@
             "react-app/jest"
         ]
     },
+    "scripts": {
+        "deploy": "echo 'Simulando deploy em produção.'"
+    },
     "browserslist": {
         "production": [
             ">0.2%",

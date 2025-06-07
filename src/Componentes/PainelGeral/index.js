@@ -128,6 +128,7 @@ const PainelGeral = () => {
             setTaskName('');
             setTaskDescription('');
             setPriority('');
+            setAssignedTo(''); // Limpa campo após cadastro
             handleClose();
         } catch (error) {
             console.error('Erro ao criar tarefa:', error);
@@ -249,6 +250,15 @@ const PainelGeral = () => {
     }
     console.log('Tarefas exibidas:', displayedTasks); // Adicionado para depuração
 
+    // ...existing code...
+    const [assignedTo, setAssignedTo] = useState(''); // Novo estado para pessoa atribuída
+    // ...existing code...
+
+    const handleAssignedToChange = (e) => {
+        setAssignedTo(e.target.value);
+    };
+    // ...existing code...
+    
     return (
         <div className="container">
             <nav className='menu_lateral'>
@@ -388,6 +398,16 @@ const PainelGeral = () => {
                                     <MenuItem value="baixa">Baixa</MenuItem>
                                 </Select>
                             </FormControl>
+                                <TextField
+                                    margin="dense"
+                                    id="assignedTo"
+                                    label="Atribuir para"
+                                    type="text"
+                                    fullWidth
+                                    variant="outlined"
+                                    value={assignedTo}
+                                    onChange={handleAssignedToChange}
+                                />
                         </DialogContent>
                         <DialogActions>
                             <Button

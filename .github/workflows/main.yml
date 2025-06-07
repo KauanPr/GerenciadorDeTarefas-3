@@ -1,0 +1,20 @@
+name: Testes Trunk-Based Development
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Instalar dependências
+        run: npm install
+
+      - name: Rodar testes simulados
+        run: npm test
